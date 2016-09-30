@@ -17,6 +17,16 @@ config :sandiegojs_api, SandiegojsApi.Endpoint,
   pubsub: [name: SandiegojsApi.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :sandiegojs_api,
+  meetup_key: "4853733f70347335471c6f8576e272b"
+
+config :phoenix, :format_encoders,
+  "json-api": Poison
+
+config :mime, :types, %{
+  "application/vnd.api+json" => ["json-api"]
+}
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
