@@ -4,8 +4,6 @@ defmodule SandiegojsApi.Api.V1.EventsController do
 
   def events(conn, _params) do
     with {:ok, events} <- Meetup.get_events() do
-      require IEx
-      IEx.pry
       json conn, events
     else
       {:error, error} ->
